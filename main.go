@@ -1,10 +1,11 @@
 package main
 
 import (
-	"github.com/sbueringer/test/pkg"
+	"github.com/hashicorp/go-rootcerts"
 )
 
 
 func main(){
-	pkg.Test()
+	rootcerts.LoadCAFile("ca.crt")
+	rootcerts.LoadSystemCAs()
 }

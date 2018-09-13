@@ -6,19 +6,19 @@ load("@bazel_gazelle//:def.bzl", "gazelle")
 
 gazelle(
     name = "gazelle",
-    prefix = "github.com/sbueringer/test",
+    prefix = "github.com/sbueringer/bazel-go-rules-darwin-issue",
 )
 
 go_library(
     name = "go_default_library",
     srcs = ["main.go"],
-    importpath = "github.com/sbueringer/test",
+    importpath = "github.com/sbueringer/bazel-go-rules-darwin-issue",
     visibility = ["//visibility:private"],
-    deps = ["//pkg:go_default_library"],
+    deps = ["//vendor/github.com/hashicorp/go-rootcerts:go_default_library"],
 )
 
 go_binary(
-    name = "test",
+    name = "bazel-go-rules-darwin-issue",
     embed = [":go_default_library"],
     visibility = ["//visibility:public"],
 )
